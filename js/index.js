@@ -299,7 +299,7 @@ function BuildRow(i, array, start) {
     // make audio player
     for (var a = 0; a < 2; a++) {
         rowStr += "<td>";
-        rowStr += '<audio class="player" controls>';
+        rowStr += '<audio class="player" controls preload="none">';
         rowStr += '<source src="' + window.location.href.replace('/index.html', '') + array[i][a] + '" type="audio/wav"></audio><input type="button" class="playbutton" value="&#9658;" />'; //type="audio/mp4" changed to "audio/wav"
         rowStr += "</td>";
     }
