@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Voice Similarity Assessment</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+    <script type="text/javascript" src="http://l2.io/ip.js?var=userip"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div class="logo-container">
+        <img src="images/owr-logo.png" class="owr-logo" />
+    </div>
+    <div id="header">
+        <h3>Voice Similarity Assessment</h3>
+    </div>
+
+    <div id="wrapper" class='container'>
+        <div id="content">
+            <div class='panel'>
+            <div class='panel-body'>
+            <p class='intro-text'>Dear participant,<br> In collaboration with Oxford Wave Research and the University of Cambridge, my MA project seeks to better understand the relation of voice similarity ratings by humans and by an automatic approach. In this experiment you will be presented with pairs of voice recordings and asked to judge the similarity of each pair. The recordings may be of the same speaker or of different speakers. Please provide some personal details before proceeding to the experiment.<br>Thank you!<br>Linda Gerlach, Philipps-Universität Marburg</p>
+            </div>
+            </div>
+            <form id="form" target="_self" onsubmit="" action="">
+                <div class='panel'>
+                <div class='panel-body'>
+                    <h4>User Information</h4>
+                    <div class="form-group">
+                        <label class="b" for="name">Name (Optional)</label>
+                        <input name="name" id="name" class='form-control' type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='email'>Email (Optional)</label>
+                        <input name="email" id="email" class='form-control' type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='gender'>Gender</label>
+                        <select name='gender' id="gender" class='form-control'>
+                            <option value="Male" selected>Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='fLang'>First Language</label>
+                        <input name="fLang" id="fLang" class='form-control' type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='accent'>Accent</label>
+                        <input name="accent" id="accent" class='form-control' type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='sLang'>Second Language (if bilingual) or Dialectal Area</label>
+                        <input name="sLang" id="sLang" class='form-control' type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='age'>Age</label>
+                        <input name="age" id="age" class='form-control' type="number" max=100 min=0>
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='hearing'>Do you have any history of hearing impairment?</label>
+                        <!--why was there no name="hearing" in <select>?-->
+                        <select name="hearing" id="hearing" class='form-control'>
+                            <option value="Yes">Yes</option>
+                            <option value="No" selected>No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='quiet'>Are you in a quiet environment?</label>
+                        <select name="quiet" id="quiet" class='form-control'>
+                            <option value="Yes" selected>Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='audout'>Test completed on</label>
+                        <select id="audOut" class='form-control'>
+                            <option value="Headphones (In-Ear)">Headphones (In-Ear)</option>
+                            <option value="Headphones (Over-Ear)">Headphones (Over-Ear)</option>
+                            <option value="Speakers (Internal, Computer Built-In)">Speakers (Internal, Computer Built-In)</option>
+                            <option value="Speakers (Internal, Mobile Built-In)">Speakers (Internal, Mobile Built-In)</option>
+                            <option value="Speakers (External, Loudspeakers)">Speakers (External, Loudspeakers)</option>
+                        </select>
+                    </div>
+                    <br>
+                <div class="form-group" style='text-align: center;'>
+                <label>
+                <input type='checkbox' name='gdpr-acceptance' id='gdpr-checkbox'>
+                I consent to my data being anonymised and stored separately from the results which will be used for scientific purposes.</label>
+                </div>
+                    <!-- comments -->
+                </div></div>
+                
+                <div class='panel'>
+                <div class='panel-body'>
+                    <h4>Training Phase</h4>
+                    <p>The first three comparisons are training examples to familiarise yourself with the experiment.
+                        Each contains
+                        two short voice recordings. Rate the similarity of the voices on a scale from 1—9, where 1
+                        indicates
+                        that they are very different, and 9 that they are very similar. Thus, a <b>HIGHER</b> number
+                        indicates
+                        a
+                        <b>MORE SIMILAR</b> voice. When assessing similarity, do not focus on the accents of the
+                        speakers,
+                        any non-speech noises, or any of the spoken content. Instead, aim to give your overall
+                        impression
+                        of how similar the voices sound.</p>
+                    <table class="table table-striped maintable" id='train-table'>
+                            <col width="2%" />
+                            <col width="25%" />
+                            <col width="25%" />
+                            <col width="170px" />
+                            <col width="30">
+                        <thead>
+                            <tr>
+                                <td><b>No.</b></td>
+                                <td><b>Clip 1</b></td>
+                                <td><b>Clip 2</b></td>
+                                <td>
+                                    <div class="center"><b>Score</a><br></div>
+                                    <div class="left">1 - Very Different</div>
+                                    <div class="right">9 - Very Similar</div></b>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div></div>
+                <br>
+                
+            <div class='panel'>
+                    <div class='panel-body'>
+                    <h4>Assessment</h4>
+                        <p>Please complete the following comparisons in the same way as the training phase. Remember, a
+                            <b>HIGHER</b> number indicates a <b>MORE SIMILAR</b> voice.</p>
+                        <table class="maintable table table-striped" id="maintable">
+                            <col width="2%" />
+                            <col width="25%" />
+                            <col width="25%" />
+                            <col width="170px" />
+                            <col width="30">
+                            <thead>
+                                <tr>
+                                    <td><b>No.</b></td>
+                                    <td><b>Clip 1</b></td>
+                                    <td><b>Clip 2</b></td>
+                                    <td>
+                                        <div class="center"><b>Score</a><br></div>
+                                        <div class="left">1 - Very Different</div>
+                                        <div class="right">9 - Very Similar</div></b>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div></div>
+
+                <div class="form-group" style="padding: 10px">
+                        <label class="b" for='comments'>Comments</label>
+                        <textarea name="comments" id="comments" class='form-control' type='text'></textarea>
+                </div>
+                <!-- GDPR -->
+                <div style="width: 100%; display: block; float: right; padding: 10px;">
+                    <button id="send" type="submit" class='btn btn-success' style='width: 100%;' disabled>
+                        Finish and send
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer navbar-bottom" id="footer">
+        <h4>© Oxford Wave Research 2019</h4>
+    </div>
+</body>
+
+</html>
