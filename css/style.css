@@ -8,6 +8,18 @@ html, body {
    */
     background: white;
 }
+
+#progress {
+    width: 100%;
+    background-color: #e6e6e6;
+}
+
+#tracker {
+    width: 1%;
+    height: 20px;
+    background-color: #009ddf;
+}
+
 #wrapper {
     min-height: 100%;
     position: relative;

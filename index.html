@@ -24,13 +24,32 @@
         <div id="content">
             <div class='panel'>
             <div class='panel-body'>
-            <p class='intro-text'>Dear participant,<br> In collaboration with Oxford Wave Research and the University of Cambridge, my MA project seeks to better understand the relation of voice similarity ratings by humans and by an automatic approach. In this experiment you will be presented with pairs of voice recordings and asked to judge the similarity of each pair. The recordings may be of the same speaker or of different speakers. Please provide some personal details before proceeding to the experiment.<br>Thank you!<br>Linda Gerlach, Philipps-Universität Marburg</p>
+                <p class='intro-text'><b>Dear participant</b>,<br><br>In collaboration with Oxford Wave Research, the University of Cambridge, and Philipps-Universität Marburg, my MA project seeks to better understand the relation of voice similarity ratings by humans and by an automatic approach. In this experiment you will be presented with pairs of voice recordings and asked to judge the similarity of each pair. Please do <b>NOT</b> worry about whether the recordings might be of the same speaker or of different speakers. The experiment will take about 15-20 minutes in total.<br><br>
+                <b>Confidentiality of data</b>
+                <br>I assure you of complete confidentiality, all data collected will be used exclusively for scientific purposes. Furthermore, the results of the study will be published anonymously, i.e. without your data being personally identifiable.<br><br>
+                <b>Voluntarity and anonymity</b><br>
+                Participation in the study is voluntary. You may terminate your participation in this study at any time and without giving any reason.<br><br>
+                
+                <b>Thank you!</b><br><br>
+                Linda Gerlach, Philipps-Universität Marburg<br>
+                </p>
+
+                <p class='intro-text'style='border-style: dotted;'>
+                Since this is a pilot study, please leave comments and suggestions for improvement in the comment section at the end of this site.
+                </p>
+            </div>
+            <div class="form-group" style='text-align: center;'>
+                <p><h4><b>Declaration of consent<b></h4></p>
+                <label>
+                <input type='checkbox' name='gdpr-acceptance' id='gdpr-checkbox'>
+                I consent to the described collection and processing of the data.</label>
             </div>
             </div>
             <form id="form" target="_self" onsubmit="" action="">
                 <div class='panel'>
                 <div class='panel-body'>
                     <h4>User Information</h4>
+                    <p>Please provide some personal details before proceeding to the experiment.</p>
                     <div class="form-group">
                         <label class="b" for="name">Name (Optional)</label>
                         <input name="name" id="name" class='form-control' type="text">
@@ -79,21 +98,17 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="b" for='audout'>Test completed on</label>
+                        <label class="b" for='audout'>Please select the applicable option:</label>
                         <select id="audOut" class='form-control'>
                             <option value="Headphones (In-Ear)">Headphones (In-Ear)</option>
-                            <option value="Headphones (Over-Ear)">Headphones (Over-Ear)</option>
+                            <option value="Headphones (Over-Ear)" selected>Headphones (Over-Ear)</option>
                             <option value="Speakers (Internal, Computer Built-In)">Speakers (Internal, Computer Built-In)</option>
                             <option value="Speakers (Internal, Mobile Built-In)">Speakers (Internal, Mobile Built-In)</option>
                             <option value="Speakers (External, Loudspeakers)">Speakers (External, Loudspeakers)</option>
                         </select>
                     </div>
                     <br>
-                <div class="form-group" style='text-align: center;'>
-                <label>
-                <input type='checkbox' name='gdpr-acceptance' id='gdpr-checkbox'>
-                I consent to my data being anonymised and stored separately from the results which will be used for scientific purposes.</label>
-                </div>
+                
                     <!-- comments -->
                 </div></div>
                 
@@ -101,17 +116,11 @@
                 <div class='panel-body'>
                     <h4>Training Phase</h4>
                     <p>The first three comparisons are training examples to familiarise yourself with the experiment.
-                        Each contains
-                        two short voice recordings. Rate the similarity of the voices on a scale from 1—9, where 1
-                        indicates
-                        that they are very different, and 9 that they are very similar. Thus, a <b>HIGHER</b> number
-                        indicates
-                        a
-                        <b>MORE SIMILAR</b> voice. When assessing similarity, do not focus on the accents of the
-                        speakers,
-                        any non-speech noises, or any of the spoken content. Instead, aim to give your overall
-                        impression
-                        of how similar the voices sound.</p>
+                        Each contains two short voice recordings. Rate the similarity of the voices on a scale from 1—9, where 1
+                        indicates that they are very different, and 9 that they are very similar. Thus, a <b>HIGHER</b> number
+                        indicates a <b>MORE SIMILAR</b> voice. When assessing similarity, do not focus on the accents of the
+                        speakers, any non-speech noises, speaking style or any of the spoken content. Instead, aim to give your overall
+                        impression of how similar the voices sound.</p>
                     <table class="table table-striped maintable" id='train-table'>
                             <col width="2%" />
                             <col width="25%" />

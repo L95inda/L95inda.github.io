@@ -3,126 +3,82 @@ var defaultColor = "";
 // training files to get used to presentation and adjust volume
 var train = [
     // File 1, File 2, Google Forms Id
-    ["/Audio/test_112-3-061117_norm_sample.wav",   "/Audio/test_112B-3-070212_norm_sample.wav",     "entry.1762625825"],
-    ["/Audio/test_073B-3-061218_norm_sample.wav",   "/Audio/test_115-3-061121_norm_sample.wav",     "entry.71688659"],
-    ["/Audio/test_073-3-061009_norm_sample.wav",   "/Audio/test_096B-3-070209_norm_sample.wav",     "entry.206446725"],
+    ["/Audio/064-3-061004_example1_norm.wav",   "/Audio/043-2-060515_example1_norm.wav",     "entry.1762625825"],
+    ["/Audio/017-2-060327_example1_norm.wav",   "/Audio/017-3-060327_example1_norm.wav",     "entry.71688659"], // same speaker
+    ["/Audio/106-2-061103_example1_norm.wav",   "/Audio/099-3-061031_example1_norm.wav",     "entry.206446725"],
 ];
 
-/*
-// actual test files (EXPERIMENT 1 - differentiation similar/different - 55 comparisons)
+
+// actual test files (55 comparisons)
 var questions = [
     // File 1, File 2, Google Forms Id
-    ["/Audio/018B-3-060623_norm_sample.wav",   "/Audio/115-3-061121_norm_sample.wav",     "entry.1892256234"],
-    ["/Audio/020B-3-060623_norm_sample.wav",   "/Audio/018-3-060327_norm_sample.wav",     "entry.49918461"],
-    ["/Audio/064B-3-061218_norm_sample.wav",   "/Audio/020-3-060328_norm_sample.wav",     "entry.1306580115"],
-    ["/Audio/071B-3-061221_norm_sample.wav",   "/Audio/064-3-061004_norm_sample.wav",     "entry.660167094"],
-    ["/Audio/073B-3-061218_norm_sample.wav",   "/Audio/071-3-061009_norm_sample.wav",     "entry.1540334802"],
-    ["/Audio/095B-3-070208_norm_sample.wav",   "/Audio/073-3-061009_norm_sample.wav",     "entry.700673313"],
-    ["/Audio/096B-3-070209_norm_sample.wav",   "/Audio/095-3-061030_norm_sample.wav",     "entry.689736028"],
-    ["/Audio/103B-3-070206_norm_sample.wav",   "/Audio/096-3-061030_norm_sample.wav",     "entry.1700964310"],
-    ["/Audio/112B-3-070212_norm_sample.wav",   "/Audio/103-3-061102_norm_sample.wav",     "entry.997376607"],
-    ["/Audio/115B-3-070215_norm_sample.wav",   "/Audio/112-3-061117_norm_sample.wav",     "entry.853761221"],
-    ["/Audio/018-3-060327_norm_sample.wav",   "/Audio/064B-3-061218_norm_sample.wav",     "entry.962199474"],
-    ["/Audio/020-3-060328_norm_sample.wav",   "/Audio/071B-3-061221_norm_sample.wav",     "entry.1656871955"],
-    ["/Audio/064-3-061004_norm_sample.wav",   "/Audio/073B-3-061218_norm_sample.wav",     "entry.653673810"],
-    ["/Audio/071-3-061009_norm_sample.wav",   "/Audio/095B-3-070208_norm_sample.wav",     "entry.1955398998"],
-    ["/Audio/073-3-061009_norm_sample.wav",   "/Audio/096B-3-070209_norm_sample.wav",     "entry.984619616"],
-    ["/Audio/095-3-061030_norm_sample.wav",   "/Audio/103B-3-070206_norm_sample.wav",     "entry.1977066748"],
-    ["/Audio/096-3-061030_norm_sample.wav",   "/Audio/112B-3-070212_norm_sample.wav",     "entry.1878300647"],
-    ["/Audio/103-3-061102_norm_sample.wav",   "/Audio/115B-3-070215_norm_sample.wav",     "entry.1333506195"],
-    ["/Audio/112-3-061117_norm_sample.wav",   "/Audio/018B-3-060623_norm_sample.wav",     "entry.245737352"],
-    ["/Audio/115-3-061121_norm_sample.wav",   "/Audio/020B-3-060623_norm_sample.wav",     "entry.414680294"],
-    ["/Audio/018B-3-060623_norm_sample.wav",   "/Audio/071-3-061009_norm_sample.wav",     "entry.1025052163"],
-    ["/Audio/020B-3-060623_norm_sample.wav",   "/Audio/073-3-061009_norm_sample.wav",     "entry.1925596530"],
-    ["/Audio/064B-3-061218_norm_sample.wav",   "/Audio/095-3-061030_norm_sample.wav",     "entry.2138249126"],
-    ["/Audio/071B-3-061221_norm_sample.wav",   "/Audio/096-3-061030_norm_sample.wav",     "entry.6330497"],
-    ["/Audio/073B-3-061218_norm_sample.wav",   "/Audio/103-3-061102_norm_sample.wav",     "entry.1519920502"],
-    ["/Audio/095B-3-070208_norm_sample.wav",   "/Audio/112-3-061117_norm_sample.wav",     "entry.1565249903"],
-    ["/Audio/096B-3-070209_norm_sample.wav",   "/Audio/115-3-061121_norm_sample.wav",     "entry.200374486"],
-    ["/Audio/103B-3-070206_norm_sample.wav",   "/Audio/018-3-060327_norm_sample.wav",     "entry.460413823"],
-    ["/Audio/112B-3-070212_norm_sample.wav",   "/Audio/020-3-060328_norm_sample.wav",     "entry.1588172806"],
-    ["/Audio/115B-3-070215_norm_sample.wav",   "/Audio/064-3-061004_norm_sample.wav",     "entry.1136139842"],
-    ["/Audio/018-3-060327_norm_sample.wav",   "/Audio/073B-3-061218_norm_sample.wav",     "entry.1928270241"],
-    ["/Audio/020-3-060328_norm_sample.wav",   "/Audio/095B-3-070208_norm_sample.wav",     "entry.1631871487"],
-    ["/Audio/064-3-061004_norm_sample.wav",   "/Audio/096B-3-070209_norm_sample.wav",     "entry.1693379801"],
-    ["/Audio/071-3-061009_norm_sample.wav",   "/Audio/103B-3-070206_norm_sample.wav",     "entry.1702879672"],
-    ["/Audio/073-3-061009_norm_sample.wav",   "/Audio/112B-3-070212_norm_sample.wav",     "entry.1157417677"],
-    ["/Audio/095-3-061030_norm_sample.wav",   "/Audio/115B-3-070215_norm_sample.wav",     "entry.143481347"],
-    ["/Audio/096-3-061030_norm_sample.wav",   "/Audio/018B-3-060623_norm_sample.wav",     "entry.758756037"],
-    ["/Audio/103-3-061102_norm_sample.wav",   "/Audio/020B-3-060623_norm_sample.wav",     "entry.1092467834"],
-    ["/Audio/112-3-061117_norm_sample.wav",   "/Audio/064B-3-061218_norm_sample.wav",     "entry.127097722"],
-    ["/Audio/115-3-061121_norm_sample.wav",   "/Audio/071B-3-061221_norm_sample.wav",     "entry.1581317459"],
-    ["/Audio/018B-3-060623_norm_sample.wav",   "/Audio/095-3-061030_norm_sample.wav",     "entry.601872185"],
-    ["/Audio/020B-3-060623_norm_sample.wav",   "/Audio/096-3-061030_norm_sample.wav",     "entry.2128343507"],
-    ["/Audio/064B-3-061218_norm_sample.wav",   "/Audio/103-3-061102_norm_sample.wav",     "entry.528502878"],
-    ["/Audio/071B-3-061221_norm_sample.wav",   "/Audio/112-3-061117_norm_sample.wav",     "entry.847124059"],
-    ["/Audio/073B-3-061218_norm_sample.wav",   "/Audio/115-3-061121_norm_sample.wav",     "entry.774656081"],
+    ["/Audio/045-3-060525_sample1_norm.wav",    "/Audio/045-2-060525_sample4_norm.wav",     "entry.1892256234"], // same speaker
+    ["/Audio/002-3-060313_sample5_norm.wav",    "/Audio/019-2-060328_sample4_norm.wav",     "entry.49918461"],
+    ["/Audio/077-2-061013_sample3_norm.wav",    "/Audio/077-3-061013_sample5_norm.wav",     "entry.1306580115"], // same speaker
+    ["/Audio/087-2-061020_sample5_norm.wav",    "/Audio/075-3-061010_sample3_norm.wav",     "entry.660167094"],
+    ["/Audio/019-2-060328_sample2_norm.wav",    "/Audio/038-3-060504_sample5_norm.wav",     "entry.1540334802"],
 
-    ["/Audio/071B-3-061221_norm_sample.wav",   "/Audio/112-3-061117_norm_sample.wav",     "entry.1163467414"],
-    ["/Audio/071B-3-061221_norm_sample.wav",   "/Audio/112-3-061117_norm_sample.wav",     "entry.711537041"],
-    ["/Audio/071B-3-061221_norm_sample.wav",   "/Audio/112-3-061117_norm_sample.wav",     "entry.527175188"],
-    ["/Audio/071B-3-061221_norm_sample.wav",   "/Audio/112-3-061117_norm_sample.wav",     "entry.862730328"],
-    ["/Audio/071B-3-061221_norm_sample.wav",   "/Audio/112-3-061117_norm_sample.wav",     "entry.723274653"],
-    ["/Audio/071B-3-061221_norm_sample.wav",   "/Audio/112-3-061117_norm_sample.wav",     "entry.501768031"],
-    ["/Audio/071B-3-061221_norm_sample.wav",   "/Audio/112-3-061117_norm_sample.wav",     "entry.1038590447"],
-    ["/Audio/071B-3-061221_norm_sample.wav",   "/Audio/112-3-061117_norm_sample.wav",     "entry.1585610338"],
-    ["/Audio/071B-3-061221_norm_sample.wav",   "/Audio/112-3-061117_norm_sample.wav",     "entry.917781276"],
-    ["/Audio/071B-3-061221_norm_sample.wav",   "/Audio/112-3-061117_norm_sample.wav",     "entry.424732404"]
+    ["/Audio/002-2-060313_sample5_norm.wav",    "/Audio/038-3-060504_sample4_norm.wav",     "entry.700673313"],
+    ["/Audio/046-2-060602_sample5_norm.wav",    "/Audio/038-3-060504_sample1_norm.wav",     "entry.689736028"],
+    ["/Audio/045-2-060525_sample2_norm.wav",    "/Audio/038-3-060504_sample3_norm.wav",     "entry.1700964310"],
+    ["/Audio/087-2-061020_sample4_norm.wav",    "/Audio/100-3-061031_sample1_norm.wav",     "entry.997376607"],
+    ["/Audio/118-2-070614_sample3_norm.wav",    "/Audio/045-3-060525_sample2_norm.wav",     "entry.853761221"],
+
+    ["/Audio/046-3-060602_sample3_norm.wav",    "/Audio/118-2-070614_sample2_norm.wav",     "entry.962199474"],
+    ["/Audio/077-2-061013_sample1_norm.wav",    "/Audio/118-3-070614_sample3_norm.wav",     "entry.1656871955"],
+    ["/Audio/077-3-061013_sample3_norm.wav",    "/Audio/046-2-060602_sample1_norm.wav",     "entry.653673810"],
+    ["/Audio/100-3-061031_sample4_norm.wav",    "/Audio/038-2-060504_sample5_norm.wav",     "entry.1955398998"],
+    ["/Audio/002-3-060313_sample4_norm.wav",    "/Audio/077-2-061013_sample4_norm.wav",     "entry.984619616"],
+
+    ["/Audio/046-3-060602_sample5_norm.wav",    "/Audio/002-2-060313_sample1_norm.wav",     "entry.1977066748"],
+    ["/Audio/038-3-060504_sample6_norm.wav",    "/Audio/075-2-061010_sample1_norm.wav",     "entry.1878300647"],
+    ["/Audio/045-3-060525_sample5_norm.wav",    "/Audio/019-2-060328_sample1_norm.wav",     "entry.1333506195"],
+    ["/Audio/118-3-070614_sample6_norm.wav",    "/Audio/118-2-070614_sample5_norm.wav",     "entry.245737352"], // same speaker
+    ["/Audio/118-3-070614_sample4_norm.wav",    "/Audio/100-2-061031_sample2_norm.wav",     "entry.414680294"],
+
+    ["/Audio/045-3-060525_sample4_norm.wav",    "/Audio/100-2-061031_sample4_norm.wav",     "entry.1025052163"],
+    ["/Audio/075-2-061010_sample3_norm.wav",    "/Audio/075-3-061010_sample1_norm.wav",     "entry.1925596530"], // same speaker
+    ["/Audio/100-3-061031_sample5_norm.wav",    "/Audio/046-2-060602_sample6_norm.wav",     "entry.2138249126"],
+    ["/Audio/087-3-061020_sample1_norm.wav",    "/Audio/002-2-060313_sample2_norm.wav",     "entry.6330497"],
+    ["/Audio/087-2-061020_sample2_norm.wav",    "/Audio/087-3-061020_sample6_norm.wav",     "entry.1519920502"], // same speaker
+
+    ["/Audio/002-2-060313_sample3_norm.wav",    "/Audio/002-3-060313_sample1_norm.wav",     "entry.1565249903"], // same speaker
+    ["/Audio/045-3-060525_sample3_norm.wav",    "/Audio/087-2-061020_sample1_norm.wav",     "entry.200374486"],
+    ["/Audio/077-3-061013_sample1_norm.wav",    "/Audio/075-2-061010_sample5_norm.wav",     "entry.460413823"],
+    ["/Audio/118-2-070614_sample4_norm.wav",    "/Audio/002-3-060313_sample2_norm.wav",     "entry.1588172806"],
+    ["/Audio/002-3-060313_sample3_norm.wav",    "/Audio/045-2-060525_sample1_norm.wav",     "entry.1136139842"],
+
+    ["/Audio/087-3-061020_sample5_norm.wav",    "/Audio/019-2-060328_sample6_norm.wav",     "entry.1928270241"],
+    ["/Audio/019-2-060328_sample5_norm.wav",    "/Audio/019-3-060328_sample1_norm.wav",     "entry.1631871487"], // same speaker
+    ["/Audio/100-3-061031_sample6_norm.wav",    "/Audio/100-2-061031_sample1_norm.wav",     "entry.1693379801"], // same speaker
+    ["/Audio/075-3-061010_sample4_norm.wav",    "/Audio/002-2-060313_sample4_norm.wav",     "entry.1702879672"],
+    ["/Audio/046-2-060602_sample3_norm.wav",    "/Audio/075-3-061010_sample5_norm.wav",     "entry.1157417677"],
+
+    ["/Audio/077-3-061013_sample2_norm.wav",    "/Audio/038-2-060504_sample3_norm.wav",     "entry.143481347"],
+    ["/Audio/046-3-060602_sample1_norm.wav",    "/Audio/019-2-060328_sample3_norm.wav",     "entry.758756037"],
+    ["/Audio/046-3-060602_sample2_norm.wav",    "/Audio/046-2-060602_sample2_norm.wav",     "entry.1092467834"], // same speaker
+    ["/Audio/087-2-061020_sample3_norm.wav",    "/Audio/118-3-070614_sample2_norm.wav",     "entry.127097722"],
+    ["/Audio/100-3-061031_sample2_norm.wav",    "/Audio/075-2-061010_sample4_norm.wav",     "entry.1581317459"],
+
+    ["/Audio/045-2-060525_sample5_norm.wav",    "/Audio/046-3-060602_sample4_norm.wav",     "entry.601872185"],
+    ["/Audio/075-3-061010_sample2_norm.wav",    "/Audio/045-2-060525_sample3_norm.wav",     "entry.2128343507"],
+    ["/Audio/019-3-060328_sample2_norm.wav",    "/Audio/075-2-061010_sample2_norm.wav",     "entry.528502878"],
+    ["/Audio/087-3-061020_sample3_norm.wav",    "/Audio/038-2-060504_sample2_norm.wav",     "entry.847124059"],
+    ["/Audio/118-2-070614_sample1_norm.wav",    "/Audio/019-3-060328_sample4_norm.wav",     "entry.774656081"],
+
+    ["/Audio/045-2-060525_sample6_norm.wav",    "/Audio/077-3-061013_sample4_norm.wav",     "entry.1163467414"],
+    ["/Audio/077-3-061013_sample6_norm.wav",    "/Audio/100-2-061031_sample5_norm.wav",     "entry.711537041"],
+    ["/Audio/019-3-060328_sample5_norm.wav",    "/Audio/077-2-061013_sample5_norm.wav",     "entry.527175188"],
+    ["/Audio/019-3-060328_sample3_norm.wav",    "/Audio/100-2-061031_sample3_norm.wav",     "entry.862730328"],
+    ["/Audio/038-3-060504_sample2_norm.wav",    "/Audio/038-2-060504_sample1_norm.wav",     "entry.723274653"], // same speaker
+
+    ["/Audio/087-3-061020_sample4_norm.wav",    "/Audio/046-2-060602_sample4_norm.wav",     "entry.501768031"],
+    ["/Audio/118-3-070614_sample5_norm.wav",    "/Audio/075-2-061010_sample6_norm.wav",     "entry.1038590447"],
+    ["/Audio/087-3-061020_sample2_norm.wav",    "/Audio/077-2-061013_sample2_norm.wav",     "entry.1585610338"],
+    ["/Audio/118-3-070614_sample1_norm.wav",    "/Audio/038-2-060504_sample4_norm.wav",     "entry.917781276"],
+    ["/Audio/002-2-060313_sample6_norm.wav",    "/Audio/100-3-061031_sample3_norm.wav",     "entry.424732404"]
+
 ];
-*/
-
-
-
-// actual test files (EXPERIMENT 2 - MATRIX (voice parade) - 45 comparisons)
-var questions = [
-    // File 1, File 2, Google Forms Id
-    ["/Audio/114-3-061121_norm_sample.wav", "/Audio/018B-3-060623_norm_sample.wav","entry.1892256234"],
-    ["/Audio/071B-3-061221_norm_sample.wav", "/Audio/010-3-060322_norm_sample.wav","entry.49918461"],
-    ["/Audio/071-3-061009_norm_sample.wav", "/Audio/100B-3-070206_norm_sample.wav","entry.1306580115"],
-    ["/Audio/018-3-060327_norm_sample.wav", "/Audio/065B-3-061214_norm_sample.wav","entry.660167094"],
-    ["/Audio/115-3-061121_norm_sample.wav", "/Audio/065B-3-061214_norm_sample.wav","entry.1540334802"],
-    ["/Audio/100B-3-070206_norm_sample.wav", "/Audio/018-3-060327_norm_sample.wav","entry.700673313"],
-    ["/Audio/071-3-061009_norm_sample.wav", "/Audio/096B-3-070209_norm_sample.wav","entry.689736028"],
-    ["/Audio/115-3-061121_norm_sample.wav", "/Audio/112B-3-070212_norm_sample.wav","entry.1700964310"],
-    ["/Audio/003-3-060313_norm_sample.wav", "/Audio/096B-3-070209_norm_sample.wav","entry.997376607"],
-    ["/Audio/112B-3-070212_norm_sample.wav", "/Audio/114-3-061121_norm_sample.wav","entry.853761221"],
-    ["/Audio/115-3-061121_norm_sample.wav", "/Audio/071B-3-061221_norm_sample.wav","entry.962199474"],
-    ["/Audio/018B-3-060623_norm_sample.wav", "/Audio/115-3-061121_norm_sample.wav","entry.1656871955"],
-    ["/Audio/115-3-061121_norm_sample.wav", "/Audio/096B-3-070209_norm_sample.wav","entry.653673810"],
-    ["/Audio/065-3-061004_norm_sample.wav", "/Audio/071B-3-061221_norm_sample.wav","entry.1955398998"],
-    ["/Audio/115-3-061121_norm_sample.wav", "/Audio/100B-3-070206_norm_sample.wav","entry.984619616"],
-    ["/Audio/100B-3-070206_norm_sample.wav", "/Audio/003-3-060313_norm_sample.wav","entry.1977066748"],
-    ["/Audio/010-3-060322_norm_sample.wav", "/Audio/112B-3-070212_norm_sample.wav","entry.1878300647"],
-    ["/Audio/003-3-060313_norm_sample.wav", "/Audio/065B-3-061214_norm_sample.wav","entry.1333506195"],
-    ["/Audio/018B-3-060623_norm_sample.wav", "/Audio/003-3-060313_norm_sample.wav","entry.245737352"],
-    ["/Audio/071B-3-061221_norm_sample.wav", "/Audio/003-3-060313_norm_sample.wav","entry.414680294"],
-    ["/Audio/018-3-060327_norm_sample.wav", "/Audio/071B-3-061221_norm_sample.wav","entry.1025052163"],
-    ["/Audio/114-3-061121_norm_sample.wav", "/Audio/010B-3-060621_norm_sample.wav","entry.1925596530"],
-    ["/Audio/100B-3-070206_norm_sample.wav", "/Audio/096-3-061030_norm_sample.wav","entry.2138249126"],
-    ["/Audio/096B-3-070209_norm_sample.wav", "/Audio/065-3-061004_norm_sample.wav","entry.6330497"],
-    ["/Audio/100B-3-070206_norm_sample.wav", "/Audio/010-3-060322_norm_sample.wav","entry.1519920502"],
-    ["/Audio/112B-3-070212_norm_sample.wav", "/Audio/003-3-060313_norm_sample.wav","entry.1565249903"],
-    ["/Audio/114-3-061121_norm_sample.wav", "/Audio/096B-3-070209_norm_sample.wav","entry.200374486"],
-    ["/Audio/065B-3-061214_norm_sample.wav", "/Audio/010-3-060322_norm_sample.wav","entry.460413823"],
-    ["/Audio/071-3-061009_norm_sample.wav", "/Audio/112B-3-070212_norm_sample.wav","entry.1588172806"],
-    ["/Audio/112B-3-070212_norm_sample.wav", "/Audio/065-3-061004_norm_sample.wav","entry.1136139842"],
-    ["/Audio/003-3-060313_norm_sample.wav", "/Audio/010B-3-060621_norm_sample.wav","entry.1928270241"],
-    ["/Audio/065-3-061004_norm_sample.wav", "/Audio/100B-3-070206_norm_sample.wav","entry.1631871487"],
-    ["/Audio/112B-3-070212_norm_sample.wav", "/Audio/100-3-061031_norm_sample.wav","entry.1693379801"],
-    ["/Audio/114-3-061121_norm_sample.wav", "/Audio/065B-3-061214_norm_sample.wav","entry.1702879672"],
-    ["/Audio/010-3-060322_norm_sample.wav", "/Audio/096B-3-070209_norm_sample.wav","entry.1157417677"],
-    ["/Audio/114-3-061121_norm_sample.wav", "/Audio/100B-3-070206_norm_sample.wav","entry.143481347"],
-    ["/Audio/018-3-060327_norm_sample.wav", "/Audio/112B-3-070212_norm_sample.wav","entry.758756037"],
-    ["/Audio/003-3-060313_norm_sample.wav", "/Audio/114B-3-070216_norm_sample.wav","entry.1092467834"],
-    ["/Audio/115B-3-070215_norm_sample.wav", "/Audio/003-3-060313_norm_sample.wav","entry.127097722"],
-    ["/Audio/096-3-061030_norm_sample.wav", "/Audio/112B-3-070212_norm_sample.wav","entry.1581317459"],
-    ["/Audio/115B-3-070215_norm_sample.wav", "/Audio/010-3-060322_norm_sample.wav","entry.601872185"],
-    ["/Audio/010-3-060322_norm_sample.wav", "/Audio/018B-3-060623_norm_sample.wav","entry.2128343507"],
-    ["/Audio/115B-3-070215_norm_sample.wav", "/Audio/114-3-061121_norm_sample.wav","entry.528502878"],
-    ["/Audio/096B-3-070209_norm_sample.wav", "/Audio/018-3-060327_norm_sample.wav","entry.847124059"],
-    ["/Audio/071B-3-061221_norm_sample.wav", "/Audio/114-3-061121_norm_sample.wav","entry.774656081"]
- ];
-
 
 
 // send results to Google
@@ -297,9 +253,9 @@ function BuildRow(i, array, start) {
     rowStr += "<td>" + qnum.toString() + "</td>"; // table data (add comparison number)
 
     // make audio player
-    for (var a = 0; a < 2; a++) {
+    for (var a = 0; a < 2; a++) { // change a<2 to a<1 to only have one player (adapt list of audio files and table header accordingly!)
         rowStr += "<td>";
-        rowStr += '<audio class="player" controls preload="none">';
+        rowStr += '<audio class="player" controls>';
         rowStr += '<source src="' + window.location.href.replace('/index.html', '') + array[i][a] + '" type="audio/wav"></audio><input type="button" class="playbutton" value="&#9658;" />'; //type="audio/mp4" changed to "audio/wav"
         rowStr += "</td>";
     }
@@ -475,6 +431,7 @@ $(document).ready(function () {
         else
             return 0; //It is not IE
     }
+    //alert(GetIEVersion());
 
     if (GetIEVersion() > 0) {
         alert("Internet Explorer is not supported. Please try again from another browser.");
