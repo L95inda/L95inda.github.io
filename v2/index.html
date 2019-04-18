@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Voice Similarity Assessment</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/api.js"></script>
+    <script type="text/javascript" src="http://l2.io/ip.js?var=userip"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script>
+        ClearSession(false);
+    </script>
+</head>
+
+<body>
+    <div class="logo-container">
+        <img src="images/owr-logo.png" class="owr-logo" />
+    </div>
+    <div id="header">
+        <h3>Voice Similarity Assessment</h3>
+    </div>
+
+    <div id="wrapper" class='container'>
+        <div id="content">
+            <div class='panel'>
+            <div class='panel-body'>
+            <div>
+                <ol class="progtrckr" data-progtrckr-steps="9">
+                    <li class="progtrckr-todo">Step 1</li>
+                    <li class="progtrckr-todo">Step 2</li>
+                    <li class="progtrckr-todo">Step 3</li>
+                    <li class="progtrckr-todo">Step 4</li>
+                    <li class="progtrckr-todo">Step 5</li>
+                    <li class="progtrckr-todo">Step 6</li>
+                    <li class="progtrckr-todo">Step 7</li>
+                    <li class="progtrckr-todo">Step 8</li>
+                    <li class="progtrckr-todo">Step 9</li>
+                </ol>                
+            </div>
+            <p class='intro-text'><b>Dear participant</b>,<br><br>In collaboration with Oxford Wave Research, the University of Cambridge, and Philipps-Universität Marburg, my MA project seeks to better understand the relation of voice similarity ratings by humans and by an automatic approach. In this experiment you will be presented with pairs of voice recordings and asked to judge the similarity of each pair. Please do <b>NOT</b> worry about whether the recordings might be of the same speaker or of different speakers. The experiment will take about 15-20 minutes in total. You may want to use headphones. To ensure that the audio recordings are played back correctly, please use an Internet browser other than Internet Explorer.<br><br>
+            <b>Confidentiality of data</b>
+            <br>I assure you of complete confidentiality, all data collected will be used exclusively for scientific purposes. Furthermore, the results of the study will be published anonymously, i.e. without your data being personally identifiable.<br><br>
+            <b>Voluntarity</b><br>
+            Participation in the study is voluntary. You may terminate your participation in this study at any time and without giving any reason.<br><br>
+
+            <b>Thank you!</b><br><br>
+            Linda Gerlach, Philipps-Universität Marburg<br>
+            </p>
+
+            <p class='intro-text' style='border-style: dotted;'>
+            Since this is a pilot study, please leave comments and suggestions for improvement in the comment section at the end of this assessment.<br>
+            </p>
+
+            </div>
+            <div class="form-group" style='text-align: center; border-style: solid; margin: 15px;'>
+                <p><h4><b>Declaration of consent<b></h4></p>
+                <label>
+                <input type='checkbox' name='gdpr-acceptance' id='gdpr-checkbox'>
+                I consent to the described collection and processing of the data.</label>
+            </div>
+            </div>
+            <div style="width: 100%; display: block; float: right; padding: 10px;" onclick="StartSession();">
+
+                <button id="start" type="submit" class='btn btn-success' style='width: 100%;' disabled>
+                    Continue >>
+                </button>
+                
+            </div>
+        </div>
+    </div>
+    <div class="footer navbar-bottom" id="footer">
+        <h4>© Oxford Wave Research 2019</h4>
+    </div>
+</body>
+
+</html>

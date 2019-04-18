@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Voice Similarity Assessment</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/api.js"></script>    
+    <script src="js/client.js"></script>                                                 <!-- adapt name of js-file! -->
+    <script type="text/javascript" src="http://l2.io/ip.js?var=userip"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div class="logo-container">
+        <img src="images/owr-logo.png" class="owr-logo" />
+    </div>
+    <div id="header">
+        <h3>Voice Similarity Assessment</h3>
+    </div>
+
+    <div id="wrapper" class='container'>
+        <div id="content">
+            <div class='panel'>
+            <div class='panel-body'>
+            <div>
+                <ol class="progtrckr" data-progtrckr-steps="9">
+                    <li class="progtrckr-done">Step 1</li>
+                    <li class="progtrckr-todo">Step 2</li>
+                    <li class="progtrckr-todo">Step 3</li>
+                    <li class="progtrckr-todo">Step 4</li>
+                    <li class="progtrckr-todo">Step 5</li>
+                    <li class="progtrckr-todo">Step 6</li>
+                    <li class="progtrckr-todo">Step 7</li>
+                    <li class="progtrckr-todo">Step 8</li>
+                    <li class="progtrckr-todo">Step 9</li>
+                </ol>                
+            </div>
+            <p class='intro-text'><h4>User Information</h4>Please provide some personal details before proceeding to the experiment.</p>
+            </div>
+            </div>
+            <form id="form" target="_self" onsubmit=""> <!-- Does this link work? -->
+                <div class='panel'>
+                <div class='panel-body'>
+                    <!--  -->
+                    <div class="form-group">
+                        <label class="b" for="name">Name (Optional)</label>
+                        <input name="entry.536582984" id="name" class='form-control' type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='email'>Email (Optional)</label>
+                        <input name="entry.1974949965" id="email" class='form-control' type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='gender'>Gender</label>
+                        <select name='entry.1763165004' id="gender" class='form-control'>
+                            <option value="Male" selected>Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='fLang'>First Language</label>
+                        <input name="entry.1165454118" id="fLang" class='form-control' type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='accent'>Accent</label>
+                        <input name="entry.559157509" id="accent" class='form-control' type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='sLang'>Second Language (if bilingual) or Dialectal Area</label>
+                        <input name="entry.914213355" id="sLang" class='form-control' type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='age'>Age</label>
+                        <input name="entry.1346854184" id="age" class='form-control' type="number" max=100 min=0 required>
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='hearing'>Do you have any history of hearing impairment?</label>
+                        <!--why was there no name="hearing" in <select>?-->
+                        <select name="entry.483439782" id="hearing" class='form-control' required>
+                            <option value="Yes">Yes</option>
+                            <option value="No" selected>No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='quiet'>Are you in a quiet environment?</label>
+                        <select name="entry.1646809941" id="quiet" class='form-control' required>
+                            <option value="Yes" selected>Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="b" for='audout'>Please select the applicable option:</label>
+                        <select name ="entry.1302133734" id="audOut" class='form-control' required>
+                            <option value="Headphones (In-Ear)">Headphones (In-Ear)</option>
+                            <option value="Headphones (Over-Ear)" selected>Headphones (Over-Ear)</option>
+                            <option value="Speakers (Internal, Computer Built-In)">Speakers (Internal, Computer Built-In)</option>
+                            <option value="Speakers (Internal, Mobile Built-In)">Speakers (Internal, Mobile Built-In)</option>
+                            <option value="Speakers (External, Loudspeakers)">Speakers (External, Loudspeakers)</option>
+                        </select>
+                    </div>
+                    <br>
+                
+                    <!-- comments -->
+                </div></div>
+                <div style="width: 100%; display: block; float: right; padding: 10px;">
+                    <button id="send" type="submit" class='btn btn-success' style='width: 100%;'>
+                        Continue >>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer navbar-bottom" id="footer">
+        <h4>© Oxford Wave Research 2019</h4>
+    </div>
+</body>
+
+</html>
+
+<script>
+    $('#form').submit(function (e) {
+        e.preventDefault();
+        let data = {};
+        let fd = new FormData($(this).get(0));
+
+        for (let [key, prop] of fd) {
+          data[key] = prop;
+        }
+        SubmitForm($(this).serialize(), data, "page3_assessment.html");
+        return false;
+    });
+</script>
