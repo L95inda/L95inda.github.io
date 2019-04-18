@@ -181,6 +181,8 @@ function LayoutTrain()
         tbodyHtml += BuildRow(i, train, 0);
     }
     $("#train-table tbody").html(tbodyHtml);
+
+    SetupPlayersAndSliders();
 }
 
 function LayoutTests()
@@ -192,6 +194,8 @@ function LayoutTests()
         tbodyHtml += BuildRow(i, questions, 3);
     }
     $("#maintable tbody").html(tbodyHtml);
+
+    SetupPlayersAndSliders();
 }
 
 function LayoutTestsPartial(start, end)
@@ -205,6 +209,8 @@ function LayoutTestsPartial(start, end)
         tbodyHtml += BuildRow(i, questions, 3);
     }
     $("#maintable tbody").html(tbodyHtml);
+
+    SetupPlayersAndSliders();
 }
 
 function StopAllAudio(e)
@@ -346,6 +352,35 @@ $(document).ready(function () {
         StopAllAudio(this);
     });
 
+    // Check whether Internet Explorer is used and send message that it is not supported
+    function GetIEVersion() {
+        var sAgent = window.navigator.userAgent;
+        var Idx = sAgent.indexOf("MSIE");
+
+        // If IE, return version number.
+        if (Idx > 0)
+            return parseInt(sAgent.substring(Idx + 5, sAgent.indexOf(".", Idx)));
+
+        // If IE 11 then look for Updated user agent string.
+        else if (!!navigator.userAgent.match(/Trident\/7\./))
+            return 11;
+
+        else
+            return 0; //It is not IE
+    }
+    //alert(GetIEVersion());
+
+    if (GetIEVersion() > 0) {
+        alert("Internet Explorer is not supported. Please try again from another browser.");
+        $('#send').prop("disabled", true);
+    }
+    
+    
+});
+
+function SetupPlayersAndSliders()
+{
+
     var $players = $('.player');
     var $playButtons = $('.playbutton');
 
@@ -365,7 +400,7 @@ $(document).ready(function () {
         $(playButton).click(onPlayClick.bind(null, playButton, player));
     }
 
-    // set preset audOut to internal speakers, mobile built-in if window width < 900
+    // Why is this?
     if ($(window).width() < 900) {
         $('#audOut').val('Speakers (Internal, Mobile Built-In)');
     }
@@ -400,7 +435,7 @@ var rangeSlider = function () {
     });
 };
 rangeSlider();
-});
+}
 
 
 (function ($, window, undefined) {
