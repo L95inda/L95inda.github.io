@@ -391,6 +391,10 @@ function SetupPlayersAndSliders()
         $('#device').val('Smartphone/Tablet');
     }
 
+    if ($(window).width() < 900) {
+    $('#audOut').val('Headphones (In-Ear)');
+    }
+
     $("tr").not(':first, thead tr').hover(
         function () {
             if (!$(this).hasClass("sel")) {
