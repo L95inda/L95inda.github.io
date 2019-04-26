@@ -10,6 +10,8 @@ var train = [
     ["Audio/064-3-061004_example1_norm.wav",   "Audio/043-2-060515_example1_norm.wav",     "entry.1762625825"],
     ["Audio/017-2-060327_example1_norm.wav",   "Audio/017-3-060327_example1_norm.wav",     "entry.71688659"], // same speaker
     ["Audio/106-2-061103_example1_norm.wav",   "Audio/099-3-061031_example1_norm.wav",     "entry.206446725"],
+    ["Audio/_example1_norm.wav",   "Audio/_example1_norm.wav",     "entry.987091516"],
+    ["Audio/_example1_norm.wav",   "Audio/_example1_norm.wav",     "entry.900940266"]
 ];
 
 
@@ -185,6 +187,7 @@ function LayoutTrain()
     SetupPlayersAndSliders();
 }
 
+// old version, one page only
 function LayoutTests()
 {
     var tbodyHtml = '';
@@ -198,6 +201,7 @@ function LayoutTests()
     SetupPlayersAndSliders();
 }
 
+// new version, several pages
 function LayoutTestsPartial(start, end)
 {
     var tbodyHtml = '';
@@ -206,7 +210,7 @@ function LayoutTestsPartial(start, end)
         if(i < start || i > end) continue;
 
         expectedCount ++;
-        tbodyHtml += BuildRow(i, questions, 3);
+        tbodyHtml += BuildRow(i, questions, 5);
     }
     $("#maintable tbody").html(tbodyHtml);
 
@@ -221,20 +225,14 @@ function StopAllAudio(e)
     });
 }
 
-// on click radiobuttons retrieve value, change appearance of current row and disable it
+// on click radiobuttons retrieve value, and change slider value if window size changes
 $(document).on('click', "input[type='radio']", function () {
-    /*$(this).closest('tr').css("background-color", "#66ff99");
-    $(this).closest('tr').addClass("sel");
-*/
+
     $(this).closest("tr").find("input[type='range']").val($(this).val());
     $(this).closest("tr").find(".slider_value").html($(this).val());
-/*
-    // Disable this row, and stop the audio.
-    $(this).closest('tr').find('source').attr('src', '');
-    $(this).closest('tr').find('audio').addClass('disabled');
-    $(this).closest('tr').find('input').prop('disabled', true);
-    StopAllAudio(null);*/
+
 });
+
 
 
 // What is this for? Do I need to add the other input lines that I would like to include in the survey?
@@ -354,6 +352,18 @@ $(document).ready(function () {
     
 });
 
+
+// only let one player play at a time
+window.addEventListener("play", function(e)
+{
+    if(window.$_currentlyPlaying)
+    {
+        window.$_currentlyPlaying.pause();
+    }
+    window.$_currentlyPlaying = e.target;
+}, true);
+
+
 function SetupPlayersAndSliders()
 {
 
@@ -376,9 +386,9 @@ function SetupPlayersAndSliders()
         $(playButton).click(onPlayClick.bind(null, playButton, player));
     }
 
-    // Why is this?
+    // if small screen set device to smartphone
     if ($(window).width() < 900) {
-        $('#audOut').val('Speakers (Internal, Mobile Built-In)');
+        $('#device').val('Smartphone/Tablet');
     }
 
     $("tr").not(':first, thead tr').hover(
@@ -412,7 +422,6 @@ var rangeSlider = function () {
 };
 rangeSlider();
 }
-
 
 (function ($, window, undefined) {
     'use strict';

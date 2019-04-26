@@ -18,9 +18,26 @@ $(document).ready(function () {
     }
     //alert(GetIEVersion());
 
+    // same with Edge
+    function GetEdgeVersion() {
+        var sAgent = window.navigator.userAgent;
+        var Idx = sAgent.indexOf("Edge/");
+
+        if (Idx > 0)
+            return parseInt(sAgent.substring(Idx + 5, sAgent.indexOf(".", Idx)));
+
+        else
+            return 0;
+    }
+
     // show alert message to user if they use IE
     if (GetIEVersion() > 0) {
         alert("Internet Explorer is not supported. Please try again from another browser.");
+        $('#start').prop("disabled", true);
+    }
+
+    else if (GetEdgeVersion() > 0) {
+        alert("Edge is not supported. Please try again from another browser.");
         $('#start').prop("disabled", true);
     }
 

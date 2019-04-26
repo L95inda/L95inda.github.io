@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <script src="js/jquery.min.js"></script>
     <script src="js/api.js"></script>    
-    <script src="js/client.js"></script>                                                 <!-- adapt name of js-file! -->
+    <script src="js/client.js"></script>                                                 
     <script type="text/javascript" src="http://l2.io/ip.js?var=userip"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -178,12 +178,12 @@
                     <div class="form-group">
                         <label class="b" for='sLang'>Please indicate your proficiency in English:</label>
                         <select name="entry.914213355" id="sLang" class='form-control' required>
-                            <option value=NativeBilingual>Native (incl. bilingual)</option>
-                            <option value=Fluent>Fluent</option>
-                            <option value=Excellent>Excellent</option>
-                            <option value=VeryGood>Very good</option>
-                            <option value=Good>Good</option>
-                            <option value=Basic>Basic</option>
+                            <option value="NativeBilingual">Native (incl. bilingual)</option>
+                            <option value="Fluent">Fluent</option>
+                            <option value="Excellent">Excellent</option>
+                            <option value="VeryGood">Very good</option>
+                            <option value="Good">Good</option>
+                            <option value="Basic">Basic</option>
                         </select>
                     </div>
 
@@ -195,7 +195,6 @@
                     </div>
                     <div class="form-group">
                         <label class="b" for='hearing'>Do you have any history of hearing impairment?</label>
-                        <!--why was there no name="hearing" in <select>?-->
                         <select name="entry.483439782" id="hearing" class='form-control' required>
                             <option value="Yes">Yes</option>
                             <option value="No" selected>No</option>
@@ -213,9 +212,9 @@
 
                     <div class="form-group">
                         <label class="b" for='device'>Please choose the device that you are using to complete this experiment:</label>
-                        <select name ="entry.1223894579" id="audOut" class='form-control' required>
-                            <option value="Computer" selected>Computer / Laptop</option>
-                            <option value="Smartphone">Smartphone / Tablet</option>
+                        <select name ="entry.1223894579" id="device" class='form-control' required>
+                            <option value="Computer/Laptop" selected>Computer / Laptop</option>
+                            <option value="Smartphone/Tablet">Smartphone / Tablet</option>
                         </select>
                     </div>
                     <br>
@@ -233,9 +232,7 @@
                     </div>
                     <br>
                 
-
-
-                    <!-- comments -->
+                
                 </div></div>
                 <div style="width: 100%; display: block; float: right; padding: 10px;">
                     <button id="send" type="submit" class='btn btn-success' style='width: 100%;'>
