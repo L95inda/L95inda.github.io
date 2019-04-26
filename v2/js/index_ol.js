@@ -4,6 +4,8 @@ var expectedCount = -1;
 
 var nextPage = "";
 
+var isTrain = false;
+
 // training files to get used to presentation and adjust volume
 var train = [
     // File 1, File 2, Google Forms Id
@@ -167,7 +169,7 @@ function BuildRow(i, array, start) {
 
     {   // make submit button for each row
         rowStr += "<td>";
-        rowStr += '<div class="btn btn-primary btn-sm btn-submit" type="button">Submit</div>';
+        rowStr += '<div class="btn btn-primary btn-sm btn-submit" type="button"><span class="btn-text">Submit</span><span class="btn-icon"><i class="fas fa-check"></i></span></div>';
     }
 
     rowStr += "</tr>";
@@ -386,14 +388,6 @@ function SetupPlayersAndSliders()
         $(playButton).click(onPlayClick.bind(null, playButton, player));
     }
 
-    // if small screen set device to smartphone
-    if ($(window).width() < 900) {
-        $('#device').val('Smartphone/Tablet');
-    }
-
-    if ($(window).width() < 900) {
-    $('#audOut').val('Headphones (In-Ear)');
-    }
 
     $("tr").not(':first, thead tr').hover(
         function () {
@@ -420,7 +414,57 @@ var rangeSlider = function () {
         });
 
         slider.on('input', function () {
-            $(this).next(value).html(this.value);
+            if(isTrain)
+            {
+                var valueStr = this.value.toString();
+                var popoverText = '';
+
+                if(valueStr == '1')
+                {
+                    popoverText = "Very Dissimilar";
+                }
+                else if(valueStr == '2')
+                {
+                    popoverText = "Dissimilar";
+                }
+                else if(valueStr == '3')
+                {
+                    popoverText = "Rather Dissimilar";
+                }
+                else if(valueStr == '4')
+                {
+                    popoverText = "Fairly Dissimilar";
+                }
+                else if(valueStr == '5')
+                {
+                    popoverText = "Neutral";
+                }
+                else if(valueStr == '6')
+                {
+                    popoverText = "Fairly Similar";
+                }
+                else if(valueStr == '7')
+                {
+                    popoverText = "Rather Similar";
+                }
+                else if(valueStr == '8')
+                {
+                    popoverText = "Similar";
+                }
+                else if(valueStr == '9')
+                {
+                    popoverText = "Very Similar";
+                }
+
+                popoverText = valueStr + ' - ' + popoverText;
+
+                $(this).next(value).html(popoverText);
+            }
+            else
+            {
+                $(this).next(value).html(this.value);
+            }
+            //var val = this.value;
         });
     });
 };

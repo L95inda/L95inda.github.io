@@ -20,11 +20,17 @@ html, body {
     color: #5cb85c;
 }*/
 
+
+span.btn-icon {
+    display: none;
+}
+
 ol.progtrckr {
         display: table;
         list-style-type: none;
         margin: 0;
-        padding: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
         table-layout: fixed;
         width: 100%;
     }
@@ -211,6 +217,16 @@ audio{
         padding: 7px;
         margin: 2px;
    }
+
+   span.btn-text{
+    display: none;
+   }
+
+   span.btn-icon{
+        display: block;
+        font-size: large;
+   }
+
     audio{
         display: none;
    }
@@ -230,6 +246,7 @@ audio{
     tr.spaceUnder > td {
         padding-bottom: 5em;
    }
+
    /*.checkboxgroup {
         display: inline-block;
         text-align: center;
