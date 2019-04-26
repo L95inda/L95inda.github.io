@@ -2,11 +2,11 @@ var api_url = "https://www.oxfordwaveresearch.com/linda/api/";
 
 function StartSession()
 {
-    if(!$("#gdpr-checkbox").is(":checked"))
+    /*if(!$("#gdpr-checkbox").is(":checked"))
     {
         alert("You must check the checkbox to consent to the described collection and processing of the data before you may continue.")
         return;
-    }
+    }*/
 
     $.ajax({
         url: api_url + "start.php",
