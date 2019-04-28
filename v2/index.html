@@ -58,13 +58,10 @@
                 I consent to the described collection and processing of the data.</label>
             </div>
             </div>
-            <div style="width: 100%; display: block; float: right; padding: 10px;" onclick="StartSession();">
-
+            <div id="btn-pop" style="width: 100%; display: block; float: right; padding: 10px;" onclick="StartSession();">
                 <button id="start" type="submit" class='btn btn-success' style='width: 100%;' disabled>
                         Continue >>
-                </button>
-
-                
+                </button>  
             </div>
         </div>
     </div>
@@ -78,6 +75,6 @@
 <script>
     // initialise popover
     $(function(){
-        $("#start").popover({content: "You must check the checkbox to consent to the described collection and processing of the data before you may continue.", placement: 'auto', trigger: 'hover'});
+        $("#btn-pop").popover({content: "You must check the checkbox to consent to the described collection and processing of the data before you may continue.", placement: 'auto', trigger: 'hover'});
     });
 </script>
