@@ -20,6 +20,9 @@ html, body {
     color: #5cb85c;
 }*/
 
+div.btn-pop {
+    cursor: pointer;
+}
 
 span.btn-icon {
     display: none;
@@ -85,8 +88,6 @@ ol.progtrckr {
         font-size: 1.5em;
         bottom: -1.6em;
     }
-
-
 
 #wrapper {
     min-height: 100%;
