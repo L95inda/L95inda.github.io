@@ -425,31 +425,31 @@ var rangeSlider = function () {
                 }
                 else if(valueStr == '2')
                 {
-                    popoverText = "Dissimilar";
+                    popoverText = "Moderately Dissimilar";
                 }
                 else if(valueStr == '3')
                 {
-                    popoverText = "Rather Dissimilar";
+                    popoverText = "Slightly Dissimilar";
                 }
                 else if(valueStr == '4')
                 {
-                    popoverText = "Fairly Dissimilar";
+                    popoverText = "Very Slightly Dissimilar";
                 }
                 else if(valueStr == '5')
                 {
-                    popoverText = "Neutral";
+                    popoverText = "Neither similar nor dissimilar";
                 }
                 else if(valueStr == '6')
                 {
-                    popoverText = "Fairly Similar";
+                    popoverText = "Very Slightly Similar";
                 }
                 else if(valueStr == '7')
                 {
-                    popoverText = "Rather Similar";
+                    popoverText = "Slightly Similar";
                 }
                 else if(valueStr == '8')
                 {
-                    popoverText = "Similar";
+                    popoverText = "Moderately Similar";
                 }
                 else if(valueStr == '9')
                 {
