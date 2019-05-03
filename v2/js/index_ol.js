@@ -437,7 +437,7 @@ var rangeSlider = function () {
                 }
                 else if(valueStr == '5')
                 {
-                    popoverText = "Neither similar nor dissimilar";
+                    popoverText = "Midpoint";
                 }
                 else if(valueStr == '6')
                 {
