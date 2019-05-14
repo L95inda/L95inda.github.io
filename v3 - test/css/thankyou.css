@@ -1,0 +1,15 @@
+#footer
+{
+    position: fixed;
+    bottom: 0;
+}
+#content
+{
+    padding: 0;
+}
+#wrapper
+{
+    min-height: 0;
+    text-align: center;
+    padding: 1em;
+}
