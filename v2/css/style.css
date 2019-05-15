@@ -20,6 +20,21 @@ html, body {
     color: #5cb85c;
 }*/
 
+#smilie {
+    padding-top: 10px;
+    color: #b9dfb9;
+    text-align: center;
+}
+
+#oops {
+    padding: 0.3em;
+    font-size: xx-large;
+    color: #b9dfb9;
+    font-style: oblique;
+    text-align: center;
+    margin: 1em auto;
+}
+
 div.btn-pop {
     cursor: pointer;
 }
@@ -34,6 +49,7 @@ ol.progtrckr {
         margin: 0;
         padding-left: 10px;
         padding-right: 10px;
+        padding-bottom: 5px;
         table-layout: fixed;
         width: 100%;
     }
