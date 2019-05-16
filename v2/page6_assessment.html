@@ -8,7 +8,8 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/index_ol.js"></script>
     <script src="js/api.js"></script>   
-    <script src="js/client.js"></script> 
+    <script src="js/client.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> <!-- for popovers -->  
     <script type="text/javascript" src="http://l2.io/ip.js?var=userip"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -40,6 +41,8 @@
                     <li class="progtrckr-todo"></li>
                 </ol>                
             </div>
+
+            <p style='text-align: center; padding-top: 5px;'><b>Keep going - you are already more than halfway through!</b></p>
 
             <p class='intro-text'>
                 <h4>Assessment</h4>
@@ -97,8 +100,13 @@
 </html>
 
 <script>
-        $(function(){
-            nextPage = "page7_assessment.html";
-            LayoutTestsPartial(20, 29);
-        });
+    $(function(){
+        nextPage = "page7_assessment.html";
+        LayoutTestsPartial(20, 29);
+    });
+
+    // initialise popover
+    $(function(){
+        $("#send").popover({content: "You must click the submit button at the end of each line before you may continue.", placement: 'auto', trigger: 'hover'});
+    });
 </script>
