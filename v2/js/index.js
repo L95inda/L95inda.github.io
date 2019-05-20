@@ -34,14 +34,14 @@ $(document).ready(function () {
     if (GetIEVersion() > 0) {
         $('#wrapper').hide();
         $('#badbrowser').show();
-        alert("Internet Explorer is not supported. Please try again from another browser.");
+        alert("Internet Explorer is not supported. Please try again from another browser, such as Firefox or Chrome.");
         $('#start').prop("disabled", true);
     }
 
     else if (GetEdgeVersion() > 0) {
         $('#wrapper').hide();
         $('#badbrowser').show();
-        alert("Edge is not supported. Please try again from another browser.");
+        alert("Edge is not supported. Please try again from another browser, such as Firefox or Chrome.");
         $('#start').prop("disabled", true);
     }
 
