@@ -355,14 +355,14 @@ $(document).ready(function () {
 
 
 // only let one player play at a time
-window.addEventListener("play", function(e)
+/*window.addEventListener("play", function(e)
 {
     if(window.$_currentlyPlaying)
     {
         window.$_currentlyPlaying.pause();
     }
     window.$_currentlyPlaying = e.target;
-}, true);
+}, true);*/
 
 
 function SetupPlayersAndSliders()
