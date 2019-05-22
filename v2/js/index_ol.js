@@ -468,6 +468,9 @@ var rangeSlider = function () {
     });
 };
 rangeSlider();
+$("audio").on("play", function () {
+        StopAllAudio(this);
+    });
 }
 
 (function ($, window, undefined) {
